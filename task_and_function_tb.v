@@ -1,42 +1,29 @@
-`timescale 1ns/1ps
-
-module task_function_tb;
-
-reg a, b;
-wire sum;
-wire carry;
-
-// Instantiate the DUT
-task_function uut (
-    .a(a),
-    .b(b),
-    .sum(sum),
-    .carry(carry)
+module task_function_tb(
+    input a,
+    input b,
+    output sum,
+    output reg carry
 );
 
-initial begin
+assign sum = xor_fun(a,b);
 
-    $display("A B | Sum Carry");
-    $display("----------------");
+function xor_fun;
+    input x,y;
+    begin
+        xor_fun = x ^ y;
+    end
+endfunction
 
-    a = 0; b = 0;
-    #10;
-    $display("%b %b |  %b    %b", a, b, sum, carry);
+task carry_task;
+    input x,y;
+    output c;
+    begin
+        c = x & y;
+    end
+endtask
 
-    a = 0; b = 1;
-    #10;
-    $display("%b %b |  %b    %b", a, b, sum, carry);
-
-    a = 1; b = 0;
-    #10;
-    $display("%b %b |  %b    %b", a, b, sum, carry);
-
-    a = 1; b = 1;
-    #10;
-    $display("%b %b |  %b    %b", a, b, sum, carry);
-
-    $finish;
-
+always @(*) begin
+    carry_task(a,b,carry);
 end
 
 endmodule
