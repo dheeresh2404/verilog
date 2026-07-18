@@ -1,0 +1,40 @@
+module alu(input [3:0]a,b,
+output reg [4:0]sum,dif,
+output reg [7:0]mul,
+output reg [3:0]div,rem);
+always @(*) begin
+add(a,b,sum);
+sub(a,b,dif);
+pro(a,b,mul);
+divide(a,b,div,rem);
+end
+task add;
+	input [3:0]x,y;
+	output [4:0]z;
+	begin
+	z=x+y;
+	end
+endtask
+task sub;
+    input [3:0] x, y;
+    output [4:0] z;
+    begin
+    z = x - y;
+    end
+endtask
+task pro;
+    input [3:0] x, y;
+    output [7:0] z;
+    begin
+    z = x * y;
+    end
+endtask
+task divide;
+    input [3:0] x, y;
+    output [3:0] z,rem;
+    begin
+        z = x / y;
+	rem=x%y;
+    end
+endtask
+endmodule
