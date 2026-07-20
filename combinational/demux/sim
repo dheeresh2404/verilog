@@ -7,56 +7,105 @@
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
-S_0x563277588b00 .scope module, "demux1x2_tb" "demux1x2_tb" 2 3;
+S_0x5898068f6cc0 .scope module, "demux1x4_tb" "demux1x4_tb" 2 3;
  .timescale -9 -12;
-v0x56327759b570_0 .var "I", 0 0;
-v0x56327759b630_0 .var "S", 0 0;
-v0x56327759b700_0 .net "Y0", 0 0, L_0x56327759b9c0;  1 drivers
-v0x56327759b800_0 .net "Y1", 0 0, L_0x56327759bb20;  1 drivers
-S_0x563277588c90 .scope module, "uut" "demux1x2" 2 9, 3 1 0, S_0x563277588b00;
+v0x58980690fb20_0 .var "I", 0 0;
+v0x58980690fbe0_0 .var "S0", 0 0;
+v0x58980690fc80_0 .var "S1", 0 0;
+v0x58980690fd20_0 .net "Y0", 0 0, L_0x5898069102f0;  1 drivers
+v0x58980690fdf0_0 .net "Y1", 0 0, L_0x5898069105f0;  1 drivers
+v0x58980690fe90_0 .net "Y2", 0 0, L_0x589806910950;  1 drivers
+v0x58980690ff60_0 .net "Y3", 0 0, L_0x589806910a90;  1 drivers
+S_0x5898068f6e50 .scope module, "uut" "demux1x4" 2 10, 3 1 0, S_0x5898068f6cc0;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "I";
-    .port_info 1 /INPUT 1 "S";
-    .port_info 2 /OUTPUT 1 "Y0";
-    .port_info 3 /OUTPUT 1 "Y1";
-L_0x56327759b8d0 .functor NOT 1, v0x56327759b630_0, C4<0>, C4<0>, C4<0>;
-L_0x56327759b9c0 .functor AND 1, v0x56327759b570_0, L_0x56327759b8d0, C4<1>, C4<1>;
-L_0x56327759bb20 .functor AND 1, v0x56327759b570_0, v0x56327759b630_0, C4<1>, C4<1>;
-v0x563277577830_0 .net "I", 0 0, v0x56327759b570_0;  1 drivers
-v0x56327759b170_0 .net "S", 0 0, v0x56327759b630_0;  1 drivers
-v0x56327759b230_0 .net "Y0", 0 0, L_0x56327759b9c0;  alias, 1 drivers
-v0x56327759b300_0 .net "Y1", 0 0, L_0x56327759bb20;  alias, 1 drivers
-v0x56327759b3c0_0 .net *"_ivl_0", 0 0, L_0x56327759b8d0;  1 drivers
-    .scope S_0x563277588b00;
+    .port_info 1 /INPUT 1 "S0";
+    .port_info 2 /INPUT 1 "S1";
+    .port_info 3 /OUTPUT 1 "Y0";
+    .port_info 4 /OUTPUT 1 "Y1";
+    .port_info 5 /OUTPUT 1 "Y2";
+    .port_info 6 /OUTPUT 1 "Y3";
+L_0x589806910030 .functor NOT 1, v0x58980690fc80_0, C4<0>, C4<0>, C4<0>;
+L_0x589806910120 .functor AND 1, v0x58980690fb20_0, L_0x589806910030, C4<1>, C4<1>;
+L_0x589806910230 .functor NOT 1, v0x58980690fbe0_0, C4<0>, C4<0>, C4<0>;
+L_0x5898069102f0 .functor AND 1, L_0x589806910120, L_0x589806910230, C4<1>, C4<1>;
+L_0x589806910480 .functor NOT 1, v0x58980690fc80_0, C4<0>, C4<0>, C4<0>;
+L_0x5898069104f0 .functor AND 1, v0x58980690fb20_0, L_0x589806910480, C4<1>, C4<1>;
+L_0x5898069105f0 .functor AND 1, L_0x5898069104f0, v0x58980690fbe0_0, C4<1>, C4<1>;
+L_0x589806910700 .functor AND 1, v0x58980690fb20_0, v0x58980690fc80_0, C4<1>, C4<1>;
+L_0x589806910850 .functor NOT 1, v0x58980690fbe0_0, C4<0>, C4<0>, C4<0>;
+L_0x589806910950 .functor AND 1, L_0x589806910700, L_0x589806910850, C4<1>, C4<1>;
+L_0x589806910a20 .functor AND 1, v0x58980690fb20_0, v0x58980690fc80_0, C4<1>, C4<1>;
+L_0x589806910a90 .functor AND 1, L_0x589806910a20, v0x58980690fbe0_0, C4<1>, C4<1>;
+v0x5898068e89d0_0 .net "I", 0 0, v0x58980690fb20_0;  1 drivers
+v0x58980690ee90_0 .net "S0", 0 0, v0x58980690fbe0_0;  1 drivers
+v0x58980690ef50_0 .net "S1", 0 0, v0x58980690fc80_0;  1 drivers
+v0x58980690eff0_0 .net "Y0", 0 0, L_0x5898069102f0;  alias, 1 drivers
+v0x58980690f0b0_0 .net "Y1", 0 0, L_0x5898069105f0;  alias, 1 drivers
+v0x58980690f1c0_0 .net "Y2", 0 0, L_0x589806910950;  alias, 1 drivers
+v0x58980690f280_0 .net "Y3", 0 0, L_0x589806910a90;  alias, 1 drivers
+v0x58980690f340_0 .net *"_ivl_0", 0 0, L_0x589806910030;  1 drivers
+v0x58980690f420_0 .net *"_ivl_10", 0 0, L_0x5898069104f0;  1 drivers
+v0x58980690f500_0 .net *"_ivl_14", 0 0, L_0x589806910700;  1 drivers
+v0x58980690f5e0_0 .net *"_ivl_16", 0 0, L_0x589806910850;  1 drivers
+v0x58980690f6c0_0 .net *"_ivl_2", 0 0, L_0x589806910120;  1 drivers
+v0x58980690f7a0_0 .net *"_ivl_20", 0 0, L_0x589806910a20;  1 drivers
+v0x58980690f880_0 .net *"_ivl_4", 0 0, L_0x589806910230;  1 drivers
+v0x58980690f960_0 .net *"_ivl_8", 0 0, L_0x589806910480;  1 drivers
+    .scope S_0x5898068f6cc0;
 T_0 ;
-    %vpi_call 2 17 "$display", "I S | Y0 Y1" {0 0 0};
-    %vpi_call 2 18 "$monitor", "%b %b | %b  %b", v0x56327759b570_0, v0x56327759b630_0, v0x56327759b700_0, v0x56327759b800_0 {0 0 0};
+    %vpi_call 2 21 "$display", "I S1 S0 | Y0 Y1 Y2 Y3" {0 0 0};
+    %vpi_call 2 22 "$monitor", "%b  %b  %b |  %b  %b  %b  %b", v0x58980690fb20_0, v0x58980690fc80_0, v0x58980690fbe0_0, v0x58980690fd20_0, v0x58980690fdf0_0, v0x58980690fe90_0, v0x58980690ff60_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x58980690fb20_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x56327759b570_0, 0, 1;
+    %store/vec4 v0x58980690fc80_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x56327759b630_0, 0, 1;
+    %store/vec4 v0x58980690fbe0_0, 0, 1;
     %delay 10000, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x56327759b570_0, 0, 1;
+    %store/vec4 v0x58980690fc80_0, 0, 1;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x56327759b630_0, 0, 1;
+    %store/vec4 v0x58980690fbe0_0, 0, 1;
     %delay 10000, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x56327759b570_0, 0, 1;
+    %store/vec4 v0x58980690fc80_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x56327759b630_0, 0, 1;
+    %store/vec4 v0x58980690fbe0_0, 0, 1;
     %delay 10000, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x56327759b570_0, 0, 1;
+    %store/vec4 v0x58980690fc80_0, 0, 1;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x56327759b630_0, 0, 1;
+    %store/vec4 v0x58980690fbe0_0, 0, 1;
     %delay 10000, 0;
-    %vpi_call 2 25 "$finish" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x58980690fb20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x58980690fc80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x58980690fbe0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x58980690fc80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x58980690fbe0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x58980690fc80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x58980690fbe0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x58980690fc80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x58980690fbe0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 41 "$finish" {0 0 0};
     %end;
     .thread T_0;
 # The file index is used to find the file name in the following table.
 :file_names 4;
     "N/A";
     "<interactive>";
-    "1_2_demux_tb";
-    "1_2_demux";
+    "1_4_demux_tb";
+    "1_4_demux";
