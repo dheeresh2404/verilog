@@ -1,0 +1,27 @@
+module encoder8x3(
+    input D0,
+    input D1,
+    input D2,
+    input D3,
+    input D4,
+    input D5,
+    input D6,
+    input D7,
+    output reg Y2,
+    output reg Y1,
+    output reg Y0
+);
+
+always @(*) begin
+    if (D0)      begin Y2=0; Y1=0; Y0=0; end
+    else if (D1) begin Y2=0; Y1=0; Y0=1; end
+    else if (D2) begin Y2=0; Y1=1; Y0=0; end
+    else if (D3) begin Y2=0; Y1=1; Y0=1; end
+    else if (D4) begin Y2=1; Y1=0; Y0=0; end
+    else if (D5) begin Y2=1; Y1=0; Y0=1; end
+    else if (D6) begin Y2=1; Y1=1; Y0=0; end
+    else if (D7) begin Y2=1; Y1=1; Y0=1; end
+    else         begin Y2=0; Y1=0; Y0=0; end
+end
+
+endmodule
