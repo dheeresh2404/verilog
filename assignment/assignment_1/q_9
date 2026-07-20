@@ -1,0 +1,16 @@
+module dff_negative(
+    input D,
+    input clk,
+    input reset,
+    output reg Q
+);
+
+always @(negedge clk or negedge reset)
+begin
+    if (!reset)
+        Q <= 1'b0;
+    else
+        Q <= D;
+end
+
+endmodule
