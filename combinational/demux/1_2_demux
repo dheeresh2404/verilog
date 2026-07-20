@@ -1,0 +1,11 @@
+module demux1x2(
+    input I,
+    input S,
+    output Y0,
+    output Y1
+);
+
+assign Y0 = I & ~S;
+assign Y1 = I & S;
+
+endmodule
