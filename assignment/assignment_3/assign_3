@@ -120,26 +120,26 @@ Answer:
 always @(*) begin
     case(sel)
 
-        3'b000: out = a + b;      // Addition
+        3'b000: out = a + b;      
 
-        3'b001: out = a - b;      // Subtraction
+        3'b001: out = a - b;      
 
-        3'b010: begin             // Division
+        3'b010: begin             
             if (b != 0)
                 out = a / b;
             else
-                out = 4'b0000;    // Divide by zero
+                out = 4'b0000;    
         end
 
-        3'b011: out = a && b;     // Logical AND
+        3'b011: out = a && b;     
 
-        3'b100: out = a & b;      // Bitwise AND
+        3'b100: out = a & b;      
 
-        3'b101: out = a | b;      // Bitwise OR
+        3'b101: out = a | b;      
 
-        3'b110: out = ~(a & b);   // Bitwise NAND
+        3'b110: out = ~(a & b);   
 
-        3'b111: out = ~(a ^ b);   // Bitwise XNOR
+        3'b111: out = ~(a ^ b);   
 
         default: out = 4'b0000;
 
