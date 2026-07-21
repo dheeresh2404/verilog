@@ -1,0 +1,99 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x62f333bdc460 .scope module, "tb_even_parity_generator" "tb_even_parity_generator" 2 1;
+ .timescale 0 0;
+v0x62f333bf1ff0_0 .var "A", 0 0;
+v0x62f333bf20b0_0 .var "B", 0 0;
+v0x62f333bf2180_0 .var "C", 0 0;
+v0x62f333bf2280_0 .var "D", 0 0;
+v0x62f333bf2350_0 .net "P", 0 0, L_0x62f333bf2690;  1 drivers
+S_0x62f333bdc5f0 .scope module, "uut" "even_parity_generator" 2 6, 3 1 0, S_0x62f333bdc460;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /INPUT 1 "D";
+    .port_info 4 /OUTPUT 1 "P";
+L_0x62f333bf2440 .functor XOR 1, v0x62f333bf1ff0_0, v0x62f333bf20b0_0, C4<0>, C4<0>;
+L_0x62f333bf2580 .functor XOR 1, v0x62f333bf2180_0, v0x62f333bf2280_0, C4<0>, C4<0>;
+L_0x62f333bf2690 .functor XOR 1, L_0x62f333bf2440, L_0x62f333bf2580, C4<0>, C4<0>;
+v0x62f333bcb920_0 .net "A", 0 0, v0x62f333bf1ff0_0;  1 drivers
+v0x62f333bf1a70_0 .net "B", 0 0, v0x62f333bf20b0_0;  1 drivers
+v0x62f333bf1b30_0 .net "C", 0 0, v0x62f333bf2180_0;  1 drivers
+v0x62f333bf1c00_0 .net "D", 0 0, v0x62f333bf2280_0;  1 drivers
+v0x62f333bf1cc0_0 .net "P", 0 0, L_0x62f333bf2690;  alias, 1 drivers
+v0x62f333bf1dd0_0 .net "w1", 0 0, L_0x62f333bf2440;  1 drivers
+v0x62f333bf1e90_0 .net "w2", 0 0, L_0x62f333bf2580;  1 drivers
+    .scope S_0x62f333bdc460;
+T_0 ;
+    %vpi_call 2 16 "$monitor", "A=%b B=%b C=%b D=%b | Parity=%b", v0x62f333bf1ff0_0, v0x62f333bf20b0_0, v0x62f333bf2180_0, v0x62f333bf2280_0, v0x62f333bf2350_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf1ff0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf20b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf2180_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf2280_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf1ff0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf20b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf2180_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf2280_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf1ff0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf20b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf2180_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf2280_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf1ff0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf20b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf2180_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf2280_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf1ff0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf20b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf2180_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x62f333bf2280_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf1ff0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf20b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf2180_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x62f333bf2280_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 26 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "even_tb_gate.v";
+    "even_gate.v";
