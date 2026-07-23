@@ -1,11 +1,11 @@
 `timescale 1ns/1ps
 
-module even_parity_generator_tb;
+module odd_parity_generator_tb;
 
 reg  [3:0] data;
 wire parity;
 
-even_parity_generator uut (
+odd_parity_generator uut (
     .data(data),
     .parity(parity)
 );
