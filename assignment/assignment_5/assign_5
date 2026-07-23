@@ -98,6 +98,30 @@ end
 
 endmodule
 
+8.Draw the waveform for the below snippet.
+
+              initial
+              begin
+              #5 clk = 0;
+              forever #5clk =~clk; end
+              initial
+              begin
+              rst = 1;
+              repeat(3)@(negedgeclk);
+              rst =0;
+              end
+Answer:
+     Time:    0    5   10   15   20   25   30   35   40
+         |----|----|----|----|----|----|----|----|
+
+clk :    X____|––––|____|––––|____|––––|____|––––
+
+rst :    –––––––––––––––––––––––––––––––\______
+                                  
+
+
+
+
 9.Write RTL code for designing a D latch using a 2:1 mux.
 
 Answer: module d_latch_mux (
